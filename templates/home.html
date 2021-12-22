@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+		<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<!--        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">-->
+</head>
+<style>
+.im{
+margin-left:200px;
+margin-top:3px;
+height:90%;
+width:90%;
+padding-bottom:16px;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+body{
+   background-color: #f3f5f9;
+}
+
+.wrapper{
+  display: flex;
+  position: relative ;
+}
+
+.wrapper .sidebar{
+  width: 200px;
+  height: 1099px;
+  background: #951B6C;
+  padding: 30px 0px;
+  position:absolute;;
+}
+
+.wrapper .sidebar h2{
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.wrapper .sidebar ul li{
+  padding: 15px;
+  border-bottom: 1px solid #bdb8d7;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.wrapper .sidebar ul li a{
+  color: #ffffff;
+  display: block;
+}
+
+.wrapper .sidebar ul li a .fas{
+  width: 25px;
+}
+
+.wrapper .sidebar ul li:hover{
+  background-color: #D5A6BD;
+}
+
+.wrapper .sidebar ul li:hover a{
+  color: #000;
+}
+footer {
+    background-color:#951B6C;
+    color:#fff;
+    font-size: 12px;
+    bottom: 0;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin-left:200px;
+    position:relative;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+    height:60px;
+}
+
+
+footer a {
+    color:  #D5A6BD;
+    font-size:12px;
+    text-decoration: none;
+
+}
+.about
+{
+text-align:center;
+color:#951B6C;font-family:Lucida Console, Courier New, monospace;
+font-weight:600;
+margin-left:200px;
+}
+
+
+.button:hover
+ 	{
+        background-color:gray;
+    }
+.button:active
+	{
+        background-color:white;
+        box-shadow: 0 3px #666;
+        transform: translateY(4px);
+    }
+.button
+	{
+        display: inline-block;
+        padding: 15px 10px;
+        font-size: 15px;
+        font-weight: bolder;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        margin-left:770px;
+        color:#951B6C;
+        background-color:white;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0px 3px #999;
+    }
+.logout{
+background-color:#D5A6BD;
+height:30px;
+}
+.logout img{
+	width: 25px;
+	height: 25px;
+	margin-top:2px;
+	margin-right:20px;
+	float:right;
+	border-radius:50px;
+	border:2px solid #951B6C;
+}
+</style>
+<body>
+    <div class="logout">
+        <a href="/login" >
+        <img src="/static/logout1.png" alt="logo_pic">
+        </a>
+    </div>
+<div class="wrapper">
+        <div>
+        <img src="/static/coping.jpg" id="icon" class="im" alt="User Icon" />
+                      <a class="button"  href="/form">LET'S GET STARTED >></a>
+        </div>
+        <div class="sidebar">
+            <h2>Aasha</h2>
+            <ul>
+                <li><a href="/home"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="/form"><i class="fas fa-list-alt"></i>Form</a></li>
+                <li><a href="/upload"><i class="fas fa-project-diagram"></i>Process</a></li>
+                <li><a href="/appointment"><i class="fas fa-calendar-check"></i>Appointment</a></li>
+                <li><a href="/reports"><i class="fas fa-blog"></i>Report</a></li>
+                <li><a href="/profile"><i class="fas fa-address-book"></i>Profile</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container" style="height:150px; background-color:white;">
+        <br>
+     <h1 class="about">About Us</h1>
+        <br>
+        <p style=" font-size:14px; margin-left:200px;text-align:center; font-family: Arial, Helvetica, sans-serif;
+">SAMYAMA SAHYADRI TECH LLP incorporated on 30 April, 2019 at Sahyadri College of Engineering and Management initiates “Aasha”, an endeavor for Early Detection of Breast Cancer by Thermal Imaging. Our objective is to contribute to the Sustainable Development Goal 3, regarding "Good Health and Well-being", and serve every woman, reach every society and  fight against breast cancer by doing whatever it takesWith Aasha we intend to serve every women, reach every community and deliver a painless, noninvasive and affordable screening technique.
+</p>
+    </div>
+    <div class="container" style="height:1px;width:900px ;background-color:gray;margin-left:430px"></div>
+    <div class="container" style="height:100px; background-color:#f3f5f9;">
+    <br>
+     <h1 class="about">Contact Us</h1>
+        <br>
+         <p style=" font-size:14px; margin-left:200px;text-align:center; font-family: Arial, Helvetica, sans-serif;
+">Address:
+Samyama Sahyadri Tech LLP
+Sahyadri College of Engineering and Management, Adyar, Mangalore - 575007.
+Contact Number: +91 98456 42504
+</p>
+    </div>
+<footer>
+  <p>Samyama Sahyadri Tech LLP</p>
+  <p><a href="mail to:samyamatechllp@gmail.com"> samyamatechllp@gmail.com</a></p>
+</footer>
+</body>
+</html>

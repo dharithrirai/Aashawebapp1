@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.css" />
+</head>
+<style>
+ body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color:#f3f5f9;
+}
+
+.sidenav {
+  height: 730px;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #951B6C;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 30px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+
+
+}
+
+.sidenav a:hover {
+  color: #000;
+   background-color: #D5A6BD;
+   display:block;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.fas{
+padding-right:5px;
+  width: 25px;
+}
+footer
+    {
+        background-color:  #951B6C;
+        color: #fff;
+        font-size: 12px;
+        bottom: 0;
+        left: 0;
+        position:absolute;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
+
+footer p
+ {
+    margin: 10px 0;
+}
+
+footer a
+{
+    color:#D5A6BD;
+    text-decoration: none;
+}
+footer
+    {
+        background-color:  #951B6C;
+        color: #fff;
+        font-size: 12px;
+        bottom: 0;
+        left: 0;
+        position:absolute;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
+.logout img{
+	width: 25px;
+	height: 25px;
+	margin-top:2px;
+	margin-right:20px;
+	float:right;
+	border-radius:50px;
+	border:2px solid #951B6C;
+}
+h6.inactive {
+  color: #cccccc;
+}
+h6.active {
+  color: #0d0d0d;
+  border-bottom: 2px solid #951B6C;
+}
+
+footer p
+ {
+    margin: 10px 0;
+}
+
+footer a
+{
+    color:#D5A6BD;
+    text-decoration: none;
+}
+
+.underlineHover:after {
+  display: block;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 2px;
+  background-color: #951B6C;
+  content: "";
+  transition: width 0.2s;
+}
+.underlineHover:hover {
+  color: #0d0d0d;
+}
+.underlineHover:hover:after{
+  width: 100%;
+}
+.div1{
+padding:10px 10px 10px 10px;
+background-color:#decddd;
+color:black;
+height:50px;
+width:190px;
+margin-top:20px;
+margin-left:100px;
+
+}
+.div2{
+padding:10px 10px 10px 10px;
+background-color:#decddd;
+color:black;
+height:50px;
+width:190px;
+margin-top:20px;
+margin-left:100px;
+}
+.div3{
+margin-top:80px;
+font-weight:600px;
+margin-left:80px;
+}
+.div4{
+padding:10px 10px 10px 10px;
+background-color:#decddd;
+color:black;
+height:100px;
+width:250px;
+margin-top:40px;
+margin-left:80px;
+border:solid 2px #951B6C;
+}
+
+a {
+    color: #0060B6;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#00A0C6;
+    text-decoration:none;
+    cursor:pointer;
+}
+.im{
+height:600px;
+width:650px;
+margin-top:25px;
+margin-left:100px;
+border-radius:50%;
+}
+
+.cont{
+margin-top:200px;
+border:2px solid #951B6C;
+height:100px;
+width:800px;
+float:left;
+}
+.wrapper {
+    text-align : center;
+}
+.image, .form {
+    display: inline-block;
+    vertical-align: top;
+}
+</style>
+<body>
+<div class="fluid-container" style="background-color: #D5A6BD; height:35Ppx;width:100%;">
+    <a style="font-size:20px;cursor:pointer;" onclick="openNav()">&#9776; Aasha</a>
+        <a class="logout" href="/login" >
+        <img src="/static/logout1.png" alt="logo_pic">
+        </a>
+</div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/home"><i class="fas fa-home"></i>Home</a>
+    <a href="/form"><i class="fas fa-list-alt"></i>Form</a>
+    <a href="/process"><i class="fas fa-project-diagram"></i>Process</a>
+    <a href="/appointment"><i class="fas fa-calendar-check"></i>Appointment</a>
+    <a href="/reports"><i class="fas fa-blog"></i>Report</a>
+    <a href="/profile"><i class="fas fa-address-book"></i>Profile</a>
+</div>
+<div class="wrapper">
+    <div class="image">
+            <img src="/static/GettyImages505768988Tiny (1).jpg" id="icon" class="im" alt="User Icon" />
+    </div>
+    <div class="form">
+        <div  class="div1">
+        <a href="/profilerep" >
+            <h6 class="inactive underlineHover" style="color:black">Report record</h6>
+        </a>
+    </div>
+    <div class="div2">
+        <a href="/profiledetail" >
+            <h6 class="inactive underlineHover" style="color:black">Patient record</h6>
+        </a>
+    </div>
+        <div class="div3">
+            <h1 class="div 3">25</h1>
+            <h6>Number of patients</h6>
+        </a>
+    </div>
+        <div class="div4">
+            <h6 >Hospital Name: Father Mullers</h6>
+            <h6 >Hospital ID: H01</h6>
+        </a>
+    </div>
+    </div>
+</div>
+<footer>
+  <p>Samyama Sahyadri Tech LLP</p>
+  <p><a href="mail to:samyamatechllp@gmail.com"> samyamatechllp@gmail.com</a></p>
+</footer>
+    <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "200px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+</body>
+</html>

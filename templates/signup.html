@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign-Up</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+<!--        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">-->
+</head>
+<style>
+body
+	{
+	background: white;
+	font-family: 'Montserrat', sans-serif;
+	}
+.im
+	{
+ 	margin-left: 200px;
+ 	padding-top:50px;
+ 	}
+form {
+	background-color:#D5A6BD;
+	display: flex;
+	align-items: left;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+	border-radius:50px;
+
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 90%;
+}
+
+.form-container {
+	position: absolute;
+	top:55px;
+	left:950px;
+	height: 70%;
+	width:400px;
+	transition: all 0.6s ease-in-out;
+
+}
+.button:hover
+ 	{
+        background-color:gray;
+    }
+.button:active
+	{
+        background-color:white;
+        box-shadow: 0 3px #666;
+        transform: translateY(4px);
+    }
+.button
+	{
+        display: inline-block;
+        padding: 15px 10px;
+        font-size: 15px;
+        font-weight: bolder;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color:#951B6C;
+        background-color:white;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0px 3px #999;
+    }
+
+footer {
+    background-color:  #951B6C;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer a {
+    color:#D5A6BD;
+    text-decoration: none;
+}
+.oneline{
+font-style: italic;
+  font-size: 25px;
+  text-align:center;
+  color: #951B6C;
+ }
+
+.alert {
+  padding: 5px;
+  background-color:#ff004f;
+  color:white;
+  text-align:center;
+  margin-bottom: 5px;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+#formFooter {
+  margin-top:20px;
+  background-color: #f6f6f6;
+  border-top: 1px solid #dce8f1;
+  padding: 25px;
+  width:250px;
+  font-size:14px;
+  text-align: center;
+  border-radius: 10px 10px 10px 10px;
+}
+.lbutton{
+color:#951B6C;
+font-weight:bold;
+}
+
+</style>
+<body>
+<h1 class="oneline" >"We envision to support the FIGHTERS, admire the SURVIVORS, honor the TAKEN and never give up HOPE - Aasha"</h1>
+<img src="/static/Aasha with name.png" class="im" alt="logo" width="600" height="450">
+<div class="wrapper">
+	<div class="form-container ">
+  			<h1 style="text-align:center; font-size:24px;" >Sign-Up</h1>
+  			<form action="/signup" method="post">
+    			<input type="text" name="Hid" id="Hid" placeholder="Hospital ID" required/>
+    			<br>
+    			<input type="text" name="Hname" id="Hname" placeholder="Hospital Name" required/>
+    			<br>
+                <input type="email" name="Hemail" id="Hemail" placeholder="Email-Id" required/>
+    			<br>
+                <input type="password" name="Password" id="Password" placeholder="Password" required/>
+    			<br>
+                <center>
+                    <input type="submit" class="button" value="Sign-Up"/>
+                </center>
+                <div id="formFooter">
+                <a class="underlineHover" style="color:#951B6C" href="/">Already have an account?</a>
+                    <a class="lbutton"  href="/login">Login</a>
+                </div>
+  			</form>
+		</div>
+</div>
+<footer>
+  <p>Samyama Sahyadri Tech LLP</p>
+  <p><a href="mailto:samyamatechllp@gmail.com"> samyamatechllp@gmail.com</a></p>
+</footer>
+</body>
+</html>

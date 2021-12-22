@@ -1,0 +1,117 @@
+from application import app
+from flask import Flask, render_template, url_for, redirect
+from flask_sqlalchemy import SQLAlchemy
+import pyscreenshot
+import random
+import string
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:password_here@localhost:5432/database'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy()
+db.init_app(app)
+
+class Image(db.Model):
+  __tablename__ = "images"
+  id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+  image = db.Column(db.String, nullable=True)
+  def __repr__(self):
+      return '<id={},image={}>'.format(self.id, self.image)
+#======================================================================
+def get_images(params=None):
+    if not params:
+        return Image.query.all()
+#======================================================================
+db.create_all()
+@app.route('/')
+@app.route('/homepage')
+def homepage():
+    return render_template('homepage.html')
+
+@app.route('/get_screenshot', methods=['POST'])
+def get_screenshot():
+    im = pyscreenshot.grab()
+    im.save('Screenshot3'):
+    photo = Image(im)
+    db.session.add(photo)
+    db.session.commit()
+    return render_template('homepage.html')
+
+@app.route('/images/db/', methods=['GET'])
+def get_images_from_db():
+    images = get_images()#function to help retrieve images from db
+    return render_template('show_images.html', images=images, target='db')
+
+
+===================================================================================================
+logo = db.Column(db.LargeBinary)
+files = request.files.getlist('file')
+
+if files:
+    event.logo = files[0].file.read()
+
+  =============================================
+  from base64 import b64encode
+
+@app.route('/event/<int:id>/logo')
+def event_logo(id):
+    event = Event.query.get_or_404(id)
+    image = b64encode(event.logo)
+    return render_template('event.html', event=event, logo=image)
+    ====================================================
+    @app.route('/event/<int:id>/logo')
+def event_logo(id):
+    event = Event.query.get_or_404(id)
+    return app.response_class(event.logo, mimetype='application/octet-stream')
+<img src="{{ url_for('event_logo', id=event.id }}"/>
+==============================================================
+#
+# UPLOAD_FOLDER = 'static/uploads/'
+#
+# app.secret_key = "secret key"
+# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+# app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+#
+# ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+# def allowed_file(filename):
+#     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+#
+#
+# @app.route('/process', methods=['POST'])
+# def upload_image():
+#     cursor = db.cursor(cursor_factory=psycopg2.extras.DictCursor)
+#     if 'file' not in request.files:
+#         flash('No file part')
+#         return redirect(request.url)
+#     file = request.files['file']
+#     if file.filename == '':
+#         flash('No image selected for uploading')
+#         return redirect(request.url)
+#     if file and allowed_file(file.filename):
+#         filename = secure_filename(file.filename)
+#         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#         # print('upload_image filename: ' + filename)
+#
+#         cursor.execute("INSERT INTO upload (title) VALUES (%s)", (filename,))
+#         db.commit()
+#
+#         flash('Image successfully uploaded and displayed below')
+#         return render_template('process.html', filename=filename)
+#     else:
+#         flash('Allowed image types are - png, jpg, jpeg, gif')
+#         return redirect(request.url)
+#
+#
+# @app.route('/display/<filename>')
+# def display_image(filename):
+#     # print('display_image filename: ' + filename)
+#     return redirect(url_for('static', filename='uploads/' + filename), code=301)
+
+
+def get_images(params=None):
+    if not params:
+        return Image.query.all()
+
+@app.route('/process', methods=['GET'])
+def get_images_from_db():
+    images = get_images()#function to help retrieve images from db
+    return render_template('process.html', images=images, target='db')

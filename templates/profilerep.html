@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Report</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.css" />
+</head>
+<style>
+ body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color:#f3f5f9;
+}
+
+.sidenav {
+  height: 730px;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #951B6C;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 30px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+
+
+}
+
+.sidenav a:hover {
+  color: #000;
+   background-color: #D5A6BD;
+   display:block;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.fas{
+padding-right:5px;
+  width: 25px;
+}
+footer
+    {
+        background-color:  #951B6C;
+        color: #fff;
+        font-size: 12px;
+        bottom: 0;
+        left: 0;
+        position:absolute;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
+
+footer p
+ {
+    margin: 10px 0;
+}
+
+footer a
+{
+    color:#D5A6BD;
+    text-decoration: none;
+}
+footer
+    {
+        background-color:  #951B6C;
+        color: #fff;
+        font-size: 12px;
+        bottom: 0;
+        left: 0;
+        position:absolute;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
+.logout img{
+	width: 25px;
+	height: 25px;
+	margin-top:2px;
+	margin-right:20px;
+	float:right;
+	border-radius:50px;
+	border:2px solid #951B6C;
+}
+footer p
+ {
+    margin: 10px 0;
+}
+
+footer a
+{
+    color:#D5A6BD;
+    text-decoration: none;
+}
+ td {
+        width: 150px;
+        text-align: center;
+        border: 1px solid black;
+        padding: 5px;
+        margin-left:450px;
+        font-size:12px;
+        color: #951B6C;
+	    border:1px solid #951B6C;
+	    font-weight:600;
+	    padding: 8px 5px 8px 5px;
+
+      }
+  th {
+    text-align:center;
+    font-weight:bold;
+    margin-left:450px;
+    font-size:14px;
+    background-color:#decddd;
+    border:1px solid #951B6C;
+     padding: 15px 10px 15px 10px;
+    }
+  table{
+  margin-left:400px;
+  margin-top:20px;
+  }
+
+</style>
+<body>
+<div class="fluid-container" style="background-color: #D5A6BD; height:35Ppx;width:100%;">
+    <a style="font-size:20px;cursor:pointer;" onclick="openNav()">&#9776; Aasha</a>
+        <a class="logout" href="/login" >
+        <img src="/static/logout1.png" alt="logo_pic">
+        </a>
+</div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/home"><i class="fas fa-home"></i>Home</a>
+    <a href="/form"><i class="fas fa-list-alt"></i>Form</a>
+    <a href="/process"><i class="fas fa-project-diagram"></i>Process</a>
+    <a href="/appointment"><i class="fas fa-calendar-check"></i>Appointment</a>
+    <a href="/reports"><i class="fas fa-blog"></i>Report</a>
+    <a href="/profile"><i class="fas fa-address-book"></i>Profile</a>
+</div>
+    <table>
+      <thead>
+        <tr class="header">
+            <th>Sl.No</th>
+            <th>Standard</th>
+            <th>Patient Name</th>
+            <th>Age</th>
+            <th>Stage</th>
+            <th>Report</th>
+        </tr>
+        </thead>
+        <tbody>
+         {% for row in data %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td>
+                    <td>{{row[3]}}</td>
+                    <td>{{row[4]}}</td>
+                    <td>{{row[5]}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <footer>
+      <p>Samyama Sahyadri Tech LLP</p>
+      <p><a href="mail to:samyamatechllp@gmail.com"> samyamatechllp@gmail.com</a></p>
+    </footer>
+        <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "200px";
+        }
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+        </script>
+    </body>
+</body>
+</html>

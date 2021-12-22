@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.css" />
+    <title>Report</title>
+</head>
+<style>
+    body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color:#f3f5f9;
+}
+
+.sidenav {
+  height: 730px;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #951B6C;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 30px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+
+
+}
+
+.sidenav a:hover {
+  color: #000;
+   background-color: #D5A6BD;
+   display:block;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.fas{
+padding-right:5px;
+  width: 25px;
+}
+.logout img{
+	width: 25px;
+	height: 25px;
+	margin-top:2px;
+	margin-right:20px;
+	float:right;
+	border-radius:50px;
+	border:2px solid #951B6C;
+}
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.wrapper .standard
+{
+  width: 400px;
+  height: 720px;
+  background:#DCDCDC;
+  position: absolute;
+}
+
+.wrapper .standard h2
+{
+ margin-top:22px;
+ margin-bottom:22px;
+  color: #000;
+  text-align: center;
+  font-family:Lucida Console, Courier New, monospace;
+  font-weight:400;
+   font-size:24px;
+ }
+
+.containerp
+{
+  display: block;
+  position: relative;
+  margin-top:20px;
+  padding-left: 35px;
+  left:10px;
+  margin-bottom: 35px;
+  cursor: pointer;
+  font-size: 14px;
+  font-align:center;
+  user-select: none;
+}
+
+.containerp input
+{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark
+{
+  position: absolute;
+  top: 0;
+  left: 0px;
+  height: 25px;
+  width: 25px;
+  background-color:#D5A6BD;
+}
+.containerp:hover input ~ .checkmark
+ {
+      background-color: #ccc;
+}
+
+.containerp input:checked ~ .checkmark
+{
+      background-color:#951B6C ;
+}
+
+.checkmark:after
+{
+      content: "";
+      position: absolute;
+      display: none;
+}
+
+.containerp input:checked ~ .checkmark:after
+{
+      display: block;
+}
+input.sbutton
+	{
+        display: inline-block;
+        font-size: 14px;
+        width:100px;
+        font-weight: bolder;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color:#951B6C;
+        background-color:white;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 1px 1px 2px 1px #999;
+        margin-left:900px;
+        margin-top:20px;
+    }
+.containerp .checkmark:after
+{
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+}
+.sbutton:hover
+ 	{
+        background-color:gray;
+    }
+.sbutton:active
+	{
+        background-color:white;
+        box-shadow: 0 3px #666;
+        transform: translateY(4px);
+    }
+footer
+    {
+        background-color:  #951B6C;
+        color: #fff;
+        font-size: 12px;
+        bottom: 0;
+        left: 0;
+        position:absolute;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
+.pmain_content
+ {
+  width: 100%;
+  margin-left: 210px;
+}
+
+.pmain_content .header
+{
+  padding: 20px;
+  background:#f3f5f9;
+  color: #000;
+  font-size:24px;
+  font-family:Lucida Console, Courier New, monospace;
+  font-weight:500;
+  text-align:center;
+  border-bottom: 1px solid #e0e4e8;
+}
+.pmain_content input
+{
+    border:2px solid #951B6C;
+    width:400px;
+    margin-left: 225px;
+    margin-top:10px;
+    font-size:14px;
+    padding:5px 0px 5px 3px;
+}
+
+footer p
+ {
+    margin: 10px 0;
+}
+
+footer a
+{
+    color:#D5A6BD;
+    text-decoration: none;
+}
+.tag{
+margin-left:225px;
+font-weight:bold;
+padding-top:20px;
+}
+.tag2{
+margin-left:225px;
+font-weight:490;
+font-size:14px;
+}
+#report
+{
+width:300px;
+margin-left:400px;
+font-weight:bold;
+text-align:center;
+}
+#button1{
+width:150px;
+margin-left:350px;
+margin-top:40px;
+}
+
+#button2{
+width:150px;
+margin-left:100px;
+margin-top:40px;
+}
+#head{
+margin-left:130px;
+}
+
+</style>
+<body>
+<div class="fluid-container" style="background-color: #D5A6BD; height:35Ppx;width:100%;">
+    <a style="font-size:20px;cursor:pointer;" onclick="openNav()">&#9776; Aasha</a>
+        <a class="logout" href="/login" >
+        <img src="/static/logout1.png" alt="logo_pic">
+        </a>
+</div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/home"><i class="fas fa-home"></i>Home</a>
+    <a href="/form"><i class="fas fa-list-alt"></i>Form</a>
+    <a href="/process"><i class="fas fa-project-diagram"></i>Process</a>
+    <a href="/appointment"><i class="fas fa-calendar-check"></i>Appointment</a>
+    <a href="/reports"><i class="fas fa-blog"></i>Report</a>
+    <a href="/profile"><i class="fas fa-address-book"></i>Profile</a>
+</div>
+<div>
+    <form action="/reports" method="post">
+            <div class="wrapper">
+                <div class="standard">
+                    <div class="title" style="background-color:	#DCDCDC	; border:1px solid gray;">
+                        <h2>BIRADS CATEGORY</h2>
+                    </div>
+                    <label for="step1" class="containerp">0: COMPLETE
+                        <input type="checkbox"  name="standard" id="step1"  value="0:COMPLETE">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label for="step2" class="containerp">1: NEGATIVE(NORMAL)
+                        <input type="checkbox" name="standard" id="step2" value="1: NEGATIVE(NORMAL)">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label for="step3" class="containerp" >2: TYPICALLY BENIGN
+                        <input type="checkbox" name="standard" id="step3"  value="2:TYPICALLY BENIGN">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label for="step4" class="containerp">3: PROBABLY BENIGN
+                        <input type="checkbox" name="standard" id="step4"  value="3: PROBABLY BENIGN">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label for="step5"  class="containerp">4: SUSPICIOUS OF MALIGNANCY
+                        <input type="checkbox" name="standard" id="step5" value="4:SUSPICIOUS OF MALIGNANCY">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label for="step6" class="containerp">5: HIGHLY SUGGESTIVE OF MALIGNANCY
+                        <input type="checkbox" name="standard" id="step6"  value="5:HIGHLY SUGGESTIVE OF MALIGNANCY">
+                        <span class="checkmark" ></span>
+                    </label>
+                    <label for="step6" class="containerp">6: HISTOLOGICALLY PROVEN MALIGNANCY
+                        <input type="checkbox" name="standard" id="step7"  value="6:HISTOLOGICALLY PROVEN MALIGNANCY">
+                        <span class="checkmark" ></span>
+                    </label>
+                </div>
+                <div class="pmain_content">
+                    <div class="header" id="head">REPORT</div>
+                    <h6 class="tag">PERSONAL DATA:</h6>
+                    <input type="text" id="Pname"  name="Pname" placeholder="Patient Name">
+                    <input type="text" id="Page"  name="Page" placeholder="Patient Age">
+                    <h6 class="tag">OUTCOME:</h6>
+                    <h6 class="tag2">RESULT:</h6>
+                    <h6 class="tag2">A REGION  SHOWS AN ELEVATED TEMPARATURE CLASSIFYING IT TO BE TUMOUROUS</h6>
+                    <br>
+                    <h6 class="tag2">STAGE OF CANCER:</h6>
+                    <div>
+                        <label for="s0" class="containerp" style="margin-left:215px;display:inline-block">STAGE 0
+                                        <input type="checkbox" name="stage" id="s0"  value="STAGE 0">
+                                        <span class="checkmark" ></span>
+                        </label>
+                        <label for="s1" class="containerp" style="margin-left:150px;display:inline-block">STAGE 1
+                                        <input type="checkbox" name="stage" id="s1"  value="STAGE 1">
+                                        <span class="checkmark" ></span>
+                        </label>
+                        <label for="s2" class="containerp" style="margin-left:150px;display:inline-block">STAGE 2
+                                        <input type="checkbox" name="stage" id="s2"  value="STAGE 2">
+                                        <span class="checkmark" ></span>
+                        </label>
+                        <label for="s3" class="containerp" style="margin-left:150px; display:inline-block">STAGE 3
+                                        <input type="checkbox" name="stage" id="s3"  value="STAGE 3">
+                                        <span class="checkmark"  ></span>
+                        </label>
+                        <label for="s4" class="containerp" style="margin-left:150px; display:inline-block">STAGE 4
+                                        <input type="checkbox" name="stage" id="s4"  value="STAGE 4">
+                                        <span class="checkmark"  ></span>
+                        </label>
+                    </div>
+                    <h6 class="tag">CONCLUSION:</h6>
+                    <h6 class="tag2">
+                        WE SUGGEST BREAST CANCER  at <select name="stages" id="s">
+                          <optgroup label="Explanation">
+                            <option value="s1">Stage 0</option>
+                              <option value="s1">Stage 1</option>
+                              <option value="s1">Stage 2</option>
+                              <option value="s1">Stage 3</option>
+                              <option value="s1">Stage 4</option>
+                          </optgroup>
+                    </select> AND SUSPICIOUS OF MALIGNANCY. THE REPORT HAS BEEN GENERATED FROM THE DATA ENTERED ON <br>27-08-2021 AT 10:55:07 UTC/GMT
+                    <br>
+                        <br>
+                    <input type="text" id="report"  name="report" placeholder="Positive/Negative">
+                    <br>
+                    <input type="submit" class="sbutton"  value="Submit" id="button1" >
+                    <input type="submit"  class="sbutton"   value="Print" id="button2" >
+                    </h6>
+                </div>
+            </div>
+    </form>
+</div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "200px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+    </script>
+<footer>
+    <p>Samyama Sahyadri Tech LLP</p>
+  <p><a href="mail to:samyamatechllp@gmail.com"> samyamatechllp@gmail.com</a></p>
+</footer>
+</body>
+</html>

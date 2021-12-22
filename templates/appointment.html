@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>appointment</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" href="/static/css/bootstrap.css" />
+</head>
+<style>
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color:#f3f5f9;
+}
+.wrapper{
+  display: flex;
+  position: relative;
+}
+
+.sidenav {
+  height: 730px;
+  width: 200px;
+  position:fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #951B6C;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 30px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #000;
+   background-color: #D5A6BD;
+   display:block;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.fas{
+padding-right:5px;
+  width: 25px;
+}
+.logout img{
+	width: 25px;
+	height: 25px;
+	margin-top:2px;
+	margin-right:20px;
+	float:right;
+	border-radius:50px;
+	border:2px solid #951B6C;
+}
+.wrapper .appoint{
+ width:540px;
+ height:350px;
+ item-align:center;
+ margin-top:50px;
+ background-color:#D5A6BD;
+ border-radius:30px;
+ padding-left:50px;
+ padding-top:50px;
+ }
+ .wrapper .appoint input
+{
+    margin-top:6px;
+    margin-left:20px;
+    border:1px solid #951B6C;
+    width:400px;
+    font-size:14px;
+    padding:5px 0px 5px 3px;
+}
+.sbutton:hover
+ 	{
+        background-color:gray;
+    }
+.sbutton:active
+	{
+        background-color:white;
+        box-shadow: 0 3px #666;
+        transform: translateY(4px);
+    }
+input.sbutton
+	{
+        display: inline-block;
+        font-size: 14px;
+        width:100px;
+        font-weight: bolder;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color:#951B6C;
+        background-color:white;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 2px 1px 3px 2px #999;
+        margin-left:700px;
+        margin-top:20px;
+    }
+footer
+    {
+        background-color:  #951B6C;
+        color: #fff;
+        font-size: 12px;
+        bottom: 0;
+        left: 0;
+        position:absolute;
+        right: 0;
+        text-align: center;
+        z-index: 999;
+    }
+footer p
+ {
+    margin: 10px 0;
+}
+footer a
+{
+    color:#D5A6BD;
+    text-decoration: none;
+}
+</style>
+<body>
+<div class="fluid-container" style="background-color: #D5A6BD; height:35px;width:100%;">
+    <a style="font-size:20px;cursor:pointer;" onclick="openNav()">&#9776; Aasha</a>
+        <a class="logout" href="/login" >
+        <img src="/static/logout1.png" alt="logo_pic">
+        </a>
+</div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/home"><i class="fas fa-home"></i>Home</a>
+    <a href="/form"><i class="fas fa-list-alt"></i>Form</a>
+    <a href="/upload"><i class="fas fa-project-diagram"></i>Process</a>
+    <a href="/appointment"><i class="fas fa-calendar-check"></i>Appointment</a>
+    <a href="/reports"><i class="fas fa-blog"></i>Report</a>
+    <a href="/profile"><i class="fas fa-address-book"></i>Profile</a>
+</div>
+  <form method="post" action="/appoint" enctype="multipart/form-data">
+      <div class="wrapper">
+          <img src="/static/calender-removebg-preview.png" id="icon" class="im" alt="User Icon" style="margin-left:350px;width:350px;height:350px;margin-top:280px;" />
+          <div class="appoint">
+                <input type="text" id="Hid"  name="Hid" placeholder="Hospital Id">
+                <input type="text" id="Pname"  name="Pname" placeholder="Patient Name">
+                <input type="text" id="Pcontact"  name="Pcontact" placeholder="Contact Number">
+                <input type="text" id="Ptime"  name="Ptime" placeholder="Time">
+                <input type="date" id="Pdate" name="Pdate"
+                   value="2021-07-22"
+                   min="2021-01-01" max="2022-12-31">
+              <input type="submit" class="sbutton" value="Submit" style="width:150px; margin-left:150px;margin-top:20px;">
+          </div>
+      </div>
+  </form>
+</div>
+<script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "200px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+<footer>
+  <p>Samyama Sahyadri Tech LLP</p>
+  <p><a href="mail to:samyamatechllp@gmail.com"> samyamatechllp@gmail.com</a></p>
+</footer>
+</body>
+</html>
