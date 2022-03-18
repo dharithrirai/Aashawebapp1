@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/bootstrap.css" />
+<title>Report</title>
+</head>
+<style>
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color:#f3f5f9;
+}
+.gbutton	{
+        padding: 10px 0px 10px 0px;
+        font-size: 14px;
+        width:100px;
+        font-weight: bolder;
+        margin-bottom:20px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color:#951B6C;
+        margin-left:320px;
+        background-color:white;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 2px 1px 3px 2px #999;
+        margin-left:700px;
+    }
+.gbutton:hover
+ 	{
+        background-color:gray;
+    }
+.gbutton:active
+	{
+        background-color:white;
+        box-shadow: 0 3px #666;
+        transform: translateY(4px);
+    }
+
+footer
+    {
+        background-color:  #951B6C;
+        color: #fff;
+        font-size: 12px;
+        bottom: 0;
+        position:relative;
+        text-align: center;
+        height:50px;
+        width:1550px;
+    }
+footer p
+ {
+    margin: 10px 0;
+    padding-top:3px;
+}
+
+footer a
+{
+    color:#D5A6BD;
+    text-decoration: none;
+}
+td {
+        width: 500px;
+        text-align: center;
+        border: 1px solid black;
+        padding: 5px;
+        margin-left:450px;
+        font-weight:bold;
+        font-size:14px;
+        color: #951B6C;
+	    border:1px solid #951B6C;
+	    font-weight:600;
+	    padding: 8px 5px 8px 5px;
+
+      }
+  th {
+    text-align:center;
+    font-weight:bold;
+    margin-left:450px;
+    font-size:14px;
+    background-color:#decddd;
+    border:1px solid #951B6C;
+    padding: 15px 10px 15px 10px;
+    }
+  table{
+  margin-left:450px;
+  margin-top:20px;
+  }
+  .center{
+      margin-left:430px;
+  }
+  .message{
+      text-align:center;
+      font-size:14px;
+      font-style: italic;
+  }
+  .result{
+      text-align:center;
+      font-size:16px;
+      font-weight:bold;
+  }
+  .header{
+      background-color:  #951B6C;
+      height:20px;
+    width:1550px;
+
+  }
+  .sidenav {
+  height: 730px;
+  width: 200px;
+  position:fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #951B6C;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 30px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #000;
+   background-color: #D5A6BD;
+   display:block;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.fas{
+padding-right:5px;
+  width: 25px;
+}
+.logout img{
+	width: 25px;
+	height: 25px;
+	margin-top:2px;
+	margin-right:20px;
+	float:right;
+	border-radius:50px;
+	border:2px solid #951B6C;
+}
+
+</style>
+<body>
+<!--    <div class="header"></div>-->
+<!--<a >-->
+<!--        <img src="/static/images/Aasha with name.png" alt="logo_pic" style="width:100px;height:80px;padding-top:10px;">-->
+<!--</a>-->
+<div class="fluid-container" style="background-color: #D5A6BD; height:35px;width:100%;">
+    <a style="font-size:20px;cursor:pointer;" onclick="openNav()">&#9776; Aasha</a>
+        <a class="logout" href="/login" >
+        <img src="/static/images/logout1.png" alt="logo_pic">
+        </a>
+</div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/home"><i class="fas fa-home"></i>Home</a>
+    <a href="/form"><i class="fas fa-list-alt"></i>Form</a>
+    <a href="/details"><i class="fas fa-project-diagram"></i>Process</a>
+    <a href="/appointment"><i class="fas fa-calendar-check"></i>Appointment</a>
+    <a href="/reports"><i class="fas fa-blog"></i>Report</a>
+    <a href="/profile"><i class="fas fa-address-book"></i>Profile</a>
+</div>
+<br>
+<h2 style="color:#951B6C;text-align:center;">Report of the Diagnosis</h2>
+<table border = 1>
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+<!-- <table>
+    {% if name %}
+    <tr>
+        <th>Name</th>
+        <th>{{ name }}</th>
+    </tr>
+    {% endif %}
+
+    {% if age %}
+    <tr>
+        <td>Age</td>
+        <td>{{ age }}</td>
+    </tr>
+    {% endif %}
+
+    {% if height %}
+    <tr>
+    <td>Height</td>
+    <td>{{ height }}</td>
+    </tr>
+    {% endif %}
+
+    {% if weight %}
+    <tr>
+    <td>Weight</td>
+    <td>{{ weight }}</td>
+    </tr>
+    {% endif %}
+
+    {% if Pexp %}
+    <tr>
+        <td>Pexp</td>
+        <td>{{ Pexp }}</td>
+
+    </tr>
+    {% endif %}
+
+</table> -->
+<br>
+<h2 style="color:#951B6C;text-align:center;font-size:16px;">Result of Diagnosis is displayed below</h2>
+<center>
+<!--    {% if img_class_name %}-->
+<!--    <div class="result">-->
+<!--        &lt;!&ndash;<img src="{{image}}" style="width:30%; height:30%;">&ndash;&gt;-->
+<!--        <p>-->
+<!--            This is <b>{{img_class_name}}</b>-->
+<!--        </p>-->
+<!--    </div>-->
+<!--    {% endif %}-->
+</center>
+<div class="message">
+<center>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+</center>
+</div>
+<br>
+        <script type="text/javascript">
+                function showImage() {
+                    document.getElementById('1').style.visibility = "visible";
+                }
+        </script>
+        <input type="button" value="Preview" onclick="showImage();" class="gbutton" />
+        <img id="1" src="{{ url_for('display_newimage', filename=filename) }}" style="visibility:hidden;" class="center"/>
+</div>
+<footer>
+    <p>Samyama Sahyadri Tech LLP</p>
+    <a href="mail to:samyamatechllp@gmail.com"> samyamatechllp@gmail.com</a>
+</footer>
+<script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "200px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+</body>
+</html>

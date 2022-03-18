@@ -25,12 +25,32 @@ cursor = con.cursor()
 
 @app.route('/')
 def index():
-    return render_template('signup.html')
-
+    return render_template('index.html')
 
 @app.route('/home')
 def home():
     return render_template('home.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/products')
+def product():
+    return render_template('products.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
+@app.route('/signup')
+def newhome():
+    return render_template('signup.html')
+
 
 
 @app.route('/appointment')
@@ -277,6 +297,39 @@ def profile_detail():
         cursor.execute("SELECT * FROM formm")
         detail = cursor.fetchall()
         return render_template('profiledetail.html', data=detail)
+
+#patient new upload and report
+@app.route('/details')
+def upload_newform():
+    return render_template('details.html')
+
+
+@app.route('/details', methods=['POST'])
+def upload_newimage():
+    if 'file' not in request.files:
+        flash('No file part')
+        return redirect(request.url)
+    file = request.files['file']
+    if file.filename == '':
+        flash('No image selected for uploading')
+        return redirect(request.url)
+    if file and allowed_file(file.filename):
+        filename = secure_filename(file.filename)
+        result = request.form
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        flash('Click the preview button to view the uploaded thermal image')
+        return render_template('uploaded.html', filename=filename, result=result)
+    else:
+        flash('Allowed image types are -> png, jpg, jpeg, gif')
+        return redirect(request.url)
+
+@app.route('/details/display/<filename>')
+def display_newimage(filename):
+    return redirect(url_for('static', filename='uploads/' + filename), code=301)
+
+@app.route('/details')
+def detail_newform():
+    return render_template('details.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
