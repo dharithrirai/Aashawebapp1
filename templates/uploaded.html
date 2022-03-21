@@ -156,6 +156,9 @@ padding-right:5px;
 	border:2px solid #951B6C;
 }
 
+#button1 , #button2 {
+display:inline-block;
+}
 </style>
 <body>
 <!--    <div class="header"></div>-->
@@ -163,7 +166,7 @@ padding-right:5px;
 <!--        <img src="/static/images/Aasha with name.png" alt="logo_pic" style="width:100px;height:80px;padding-top:10px;">-->
 <!--</a>-->
 <div class="fluid-container" style="background-color: #D5A6BD; height:35px;width:100%;">
-    <a style="font-size:20px;cursor:pointer;" onclick="openNav()">&#9776; Aasha</a>
+    <a style="font-size:20px;cursor:pointer; margin-left:15px" onclick="openNav()">&#9776; Aasha</a>
         <a class="logout" href="/login" >
         <img src="/static/images/logout1.png" alt="logo_pic">
         </a>
@@ -177,6 +180,8 @@ padding-right:5px;
     <a href="/reports"><i class="fas fa-blog"></i>Report</a>
     <a href="/profile"><i class="fas fa-address-book"></i>Profile</a>
 </div>
+            <img src="/static/images/Aasha with name.png" alt="logo_pic" style="width:80px;height:80px;padding-top:10px;margin-left:20px">
+
 <br>
 <h2 style="color:#951B6C;text-align:center;">Report of the Diagnosis</h2>
 <table border = 1>
@@ -187,45 +192,8 @@ padding-right:5px;
             </tr>
          {% endfor %}
       </table>
-<!-- <table>
-    {% if name %}
-    <tr>
-        <th>Name</th>
-        <th>{{ name }}</th>
-    </tr>
-    {% endif %}
-
-    {% if age %}
-    <tr>
-        <td>Age</td>
-        <td>{{ age }}</td>
-    </tr>
-    {% endif %}
-
-    {% if height %}
-    <tr>
-    <td>Height</td>
-    <td>{{ height }}</td>
-    </tr>
-    {% endif %}
-
-    {% if weight %}
-    <tr>
-    <td>Weight</td>
-    <td>{{ weight }}</td>
-    </tr>
-    {% endif %}
-
-    {% if Pexp %}
-    <tr>
-        <td>Pexp</td>
-        <td>{{ Pexp }}</td>
-
-    </tr>
-    {% endif %}
-
-</table> -->
 <br>
+<!--display the result message-->
 <h2 style="color:#951B6C;text-align:center;font-size:16px;">Result of Diagnosis is displayed below</h2>
 <center>
 <!--    {% if img_class_name %}-->
@@ -258,9 +226,11 @@ padding-right:5px;
                     document.getElementById('1').style.visibility = "visible";
                 }
         </script>
-        <input type="button" value="Preview" onclick="showImage();" class="gbutton" />
+        <input type="button" value="Preview" onclick="showImage();" class="gbutton" id="button1" />
         <img id="1" src="{{ url_for('display_newimage', filename=filename) }}" style="visibility:hidden;" class="center"/>
+        <input type="submit"  class="gbutton"  style="margin-top:20px;" value="Print" id="button2" onClick="window.print()">
 </div>
+        <button class="gbutton"><a href="/reports" style="color:#951B6C"> Report</a></button>
 <footer>
     <p>Samyama Sahyadri Tech LLP</p>
     <a href="mail to:samyamatechllp@gmail.com"> samyamatechllp@gmail.com</a>
